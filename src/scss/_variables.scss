@@ -5,14 +5,11 @@
 
 //futhermore it's necesary override the $theme-colors
 
-// $theme-colors: (
+$theme-colors: (
 //   "primary":    $primary,
-//   "secondary":  $secondary,
-//   "success":    $success,
-//   "info":       $info,
-//   "warning":    $warning,
-//   "danger":     $danger,
-//   "light":      $light,
-//   "dark":       $dark
-// )!default; 
+ 
+  "danger":     #ef1818,
+  "dark":       #000000,
+  "secondary": #ebebeb,
+)!default; 
 // @import "./../../node_modules/bootstrap/scss/bootstrap"; 
