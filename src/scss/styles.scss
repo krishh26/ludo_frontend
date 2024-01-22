@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-// @import './variables';
+@import './variables';
 // $theme-colors: (
 //   "primary": #d97b00,
 //   "danger": #ff4136
@@ -32,7 +32,7 @@ body{
 .h-3{height: 3rem;}
 
 .bold{font-weight: bolder;}
-.semibold{font-weight: 600;}
+.semibold{font-weight: 700;}
 
 .fs-10{font-size: 10px;}
 .fs-12{font-size: 12px;}
@@ -43,6 +43,7 @@ body{
 .fs-22{font-size: 22px;}
 
 .bb-1{border-bottom: 1px solid #e7e6e6;}
+.b-1{border: 1px solid #e7e6e6;}
 
 
 .bg-gray{background-color: #ebebeb;}
