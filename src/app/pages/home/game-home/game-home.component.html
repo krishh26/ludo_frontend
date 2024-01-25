@@ -1,1 +1,219 @@
-<p>game-home works!</p>
+
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center flex-column">
+            <p class="fs-16 bold opacity-8 mb-2">CREATE A BATTLE!</p>
+            <div class="d-flex justify-content-center w-100 fs-14 input-group mb-3">
+                <input type="text" class="form-control fs-14" style="width: 200px;max-width: 200px;" placeholder="Amount" aria-label="Amount" aria-describedby="basic-addon2">
+                <button type="button" class="btn btn-primary px-4 fs-14">SET</button>
+            </div>
+        </div>
+        <div class="w-100 mb-3">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="d-flex align-items-center">
+                            <div class="icon-size d-flex align-items-center bg-primary rounded-circle me-2">
+                                <svg height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trophy-variant</title><path d="M17 4V2H7V4H2V11C2 12.1 2.9 13 4 13H7.1C7.5 14.96 9.04 16.5 11 16.9V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V16.9C14.96 16.5 16.5 14.96 16.9 13H20C21.1 13 22 12.1 22 11V4H17M4 11V6H7V11L4 11M20 11L17 11V6H20L20 11Z" fill="#fff" /></svg>
+                            </div>
+                            <p class="fs-20 semibold mb-0">Open Battles</p>
+                        </span>
+                        <span class="ms-auto text-uppercase">
+                            <a class="d-flex align-items-center semibold text-decoration text-primary fs-14 mb-0" (click)="rule()">Rules
+                                <svg height="16px" width="16px" class="ms-2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><title>information</title><path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" fill="#254399"/></svg>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-column">
+                <div class="col-12 mb-2  card-list">
+                    <div class="b-1 shadow-sm rounded px-0 ">
+                        <p class="fs-14 border-bottom mb-0 p-2 px-3"><span class="semibold">CHALLENGE FROM</span>  <span class="fs-12 text-primary ms-2 opacity-8">Pankaj Kumar Meena </span></p>
+                        <div  class="d-flex align-items-center p-2 px-3">
+                            <div class="me-3">
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Entry FEE</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        <!-- <svg _ngcontent-ng-c3755439446="" xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 24 24"><title _ngcontent-ng-c3755439446="">cash</title><path _ngcontent-ng-c3755439446="" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z"></path></svg> -->
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Prize</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <button class="btn btn-warning fs-14 px-3 ms-auto">PLAY</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-2 card-list">
+                    <div class="b-1 shadow-sm rounded px-0">
+                        <p class="fs-14 border-bottom mb-0 p-2 px-3"><span class="semibold">CHALLENGE FROM</span>  <span class="fs-12 text-primary ms-2 opacity-8">Pankaj Kumar Meena </span></p>
+                        <div  class="d-flex align-items-center p-2 px-3">
+                            <div class="me-3">
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Entry FEE</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Prize</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <button class="btn btn-warning fs-14 px-3 ms-auto">PLAY</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-2 card-list">
+                    <div class="b-1 shadow-sm rounded px-0">
+                        <p class="fs-14 border-bottom mb-0 p-2 px-3"><span class="semibold">CHALLENGE FROM</span>  <span class="fs-12 text-primary ms-2 opacity-8">Pankaj Kumar Meena </span></p>
+                        <div  class="d-flex align-items-center p-2 px-3">
+                            <div class="me-3">
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Entry FEE</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="d-flex flex-column">
+                                    <span class="text-uppercase fs-10 opacity-8"> Prize</span>
+                                    <span class="fs-14 d-flex align-items-center semibold">
+                                        <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
+                                        300
+                                    </span>
+                                </span>
+                            </div>
+                            <button class="btn btn-warning fs-14 px-3 ms-auto">PLAY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="hr my-4 p-1 bg-gray"></div> -->
+        <div class="w-100">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="d-flex align-items-center">
+                            <div class="icon-size d-flex align-items-center bg-primary rounded-circle me-2">
+                                <svg height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trophy-variant</title><path d="M17 4V2H7V4H2V11C2 12.1 2.9 13 4 13H7.1C7.5 14.96 9.04 16.5 11 16.9V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V16.9C14.96 16.5 16.5 14.96 16.9 13H20C21.1 13 22 12.1 22 11V4H17M4 11V6H7V11L4 11M20 11L17 11V6H20L20 11Z" fill="#fff" /></svg>
+                            </div>
+                            <p class="fs-20 semibold mb-0">Running Battles</p>
+                        </span>
+                        <span class="ms-auto text-uppercase">
+                            <a class="d-flex align-items-center semibold text-decoration text-primary fs-14 mb-0">Rules
+                                <svg height="16px" width="16px" class="ms-2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><title>information</title><path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" fill="#254399"/></svg>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-column">
+                <div class="col-12 mb-2  card-list">
+                    <div class="b-1 shadow-sm rounded px-0 ">
+                        <div class="d-flex align-items-center border-bottom ">
+                            <p class="fs-12 mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                            <p class="fs-12 ms-auto mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                        </div>
+                       <div class="w-100 d-flex align-items-center">
+                            <div class="w-100 row">
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                                <div class="col-8 d-flex align-items-center  semibold justify-content-center ">
+                                    V/S
+                                </div>
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-2  card-list">
+                    <div class="b-1 shadow-sm rounded px-0 ">
+                        <div class="d-flex align-items-center border-bottom ">
+                            <p class="fs-12 mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                            <p class="fs-12 ms-auto mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                        </div>
+                       <div class="w-100 d-flex align-items-center">
+                            <div class="w-100 row">
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                                <div class="col-8 d-flex align-items-center  semibold justify-content-center ">
+                                    V/S
+                                </div>
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-2  card-list">
+                    <div class="b-1 shadow-sm rounded px-0 ">
+                        <div class="d-flex align-items-center border-bottom ">
+                            <p class="fs-12 mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                            <p class="fs-12 ms-auto mb-0 p-2 px-3"><span class="semibold me-2">Playing for</span>  <img class="me-1" src="../../../../assets/img/money.png" height="20px" width="20px" alt="money">
+                                300</p>
+                        </div>
+                       <div class="w-100 d-flex align-items-center">
+                            <div class="w-100 row">
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                                <div class="col-8 d-flex align-items-center  semibold justify-content-center ">
+                                    V/S
+                                </div>
+                                <div  class="col-2 mx-auto d-flex align-items-center flex-column p-2 px-3">
+                                    <div class="small-user">
+                                        <img src="../../../../assets/img/author.svg" alt="user-img">
+                                    </div>
+                                    <p class="fs-10 mb-0">EXtab</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

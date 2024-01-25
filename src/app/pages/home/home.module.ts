@@ -4,6 +4,10 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { GameHomeComponent } from './game-home/game-home.component';
+import { RuleComponent } from './rule/rule.component';
+import { KycModalComponent } from './kyc-modal/kyc-modal.component';
+import {MatInputModule} from '@angular/material/input';
+import { ProfileComponent } from './profile/profile.component';
 
 // import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatButtonModule} from '@angular/material/button';
@@ -12,18 +16,25 @@ import { GameHomeComponent } from './game-home/game-home.component';
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'game-home', component: GameHomeComponent },
+  { path: 'rule', component: RuleComponent },
+  { path: 'kyc', component: KycModalComponent },
+  { path: 'profile', component: ProfileComponent },
   { path : '**', redirectTo : 'home' }
 ];
 @NgModule({
   declarations: [
     HomeComponent,
     HomePageComponent,
-    GameHomeComponent
+    GameHomeComponent,
+    KycModalComponent,
+    ProfileComponent,
+    
   ],
   imports: [
     CommonModule,
     // Component,
     RouterModule.forChild(routes),
+    MatInputModule
     // MatSidenavModule,
     // MatButtonModule,
     // MatDialogModule,

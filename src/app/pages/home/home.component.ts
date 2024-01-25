@@ -15,4 +15,8 @@ export class HomeComponent {
   public logOut() {
     this.router.navigate(['/login']);
   }
+  public profilePage() {
+    this.router.navigate(['/profile']);
+  }
+  
 }

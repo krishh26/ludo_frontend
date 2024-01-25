@@ -192,21 +192,3 @@ label.active {--menu: var(--primary);
 
 
 
-.game-outer{height:14rem;width: 14rem;}
-.blink{
-    animation: blink 1s infinite
-}
-@keyframes blink{
-    0% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 1;
-    }
-    76% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-} 

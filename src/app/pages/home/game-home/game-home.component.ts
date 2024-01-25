@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-home',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-home.component.scss']
 })
 export class GameHomeComponent {
+  constructor(
+    private router: Router
+  ) {}
 
+  public rule() {
+    this.router.navigate(['/rule']);
+  }
 }
