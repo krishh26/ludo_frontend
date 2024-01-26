@@ -6,7 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GameHomeComponent } from './game-home/game-home.component';
 import { RuleComponent } from './rule/rule.component';
 import { KycModalComponent } from './kyc-modal/kyc-modal.component';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
 
 // import {MatSidenavModule} from '@angular/material/sidenav';
@@ -14,12 +14,12 @@ import { ProfileComponent } from './profile/profile.component';
 // import {Component} from '@angular/core';
 // import {MatDialogModule} from '@angular/material/dialog';
 const routes: Routes = [
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'game-home', component: GameHomeComponent },
   { path: 'rule', component: RuleComponent },
   { path: 'kyc', component: KycModalComponent },
   { path: 'profile', component: ProfileComponent },
-  { path : '**', redirectTo : 'home' }
 ];
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ const routes: Routes = [
     GameHomeComponent,
     KycModalComponent,
     ProfileComponent,
-    
+
   ],
   imports: [
     CommonModule,

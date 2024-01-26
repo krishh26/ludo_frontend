@@ -8,18 +8,17 @@ import { BaseLogin } from '../shared/base-login';
 import { SUCCESS } from '../constant/response-status.const';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-verify-email',
+  templateUrl: './verify-email.component.html',
+  styleUrls: ['./verify-email.component.css']
 })
-export class LoginComponent extends BaseLogin implements OnInit {
+export class VerifyEmailComponent implements OnInit {
 
   defaultLoginForm = {
-    userName: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required]),
+    userName: new FormControl("", [Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
   };
 
-  loginForm = new FormGroup(this.defaultLoginForm, []);
+  verifyEmailForm = new FormGroup(this.defaultLoginForm, []);
   loginUser: any;
   showLoader: boolean = false;
 
@@ -29,7 +28,6 @@ export class LoginComponent extends BaseLogin implements OnInit {
     private router: Router,
     private notificationService: NotificationService,
   ) {
-    super()
     // this.loginUser = this.localStorageService.getLogger();
   }
 
@@ -40,11 +38,11 @@ export class LoginComponent extends BaseLogin implements OnInit {
   }
 
   // Function to use for the login the user
-  login(): void {
-    this.loginForm.markAllAsTouched();
-    if (this.loginForm.valid) {
+  verifyEmail(): void {
+    this.verifyEmailForm.markAllAsTouched();
+    if (this.verifyEmailForm.valid) {
       this.showLoader = true;
-      this.authService.login(this.loginForm.value).subscribe((response) => {
+      this.authService.login(this.verifyEmailForm.value).subscribe((response) => {
         if (response?.status == SUCCESS) {
           this.localStorageService.setLogger(response?.data);
           this.showLoader = false;

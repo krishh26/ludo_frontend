@@ -13,7 +13,7 @@ export class HomeComponent {
   ) {}
   // showFiller = false;
   public logOut() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
   public profilePage() {
     this.router.navigate(['/profile']);
