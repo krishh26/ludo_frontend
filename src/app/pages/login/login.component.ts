@@ -35,7 +35,7 @@ export class LoginComponent extends BaseLogin implements OnInit {
 
   ngOnInit(): void {
     if (this.loginUser) {
-      this.router.navigateByUrl('/home');
+      // this.router.navigateByUrl('/home');
     }
   }
 
