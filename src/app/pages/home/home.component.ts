@@ -33,4 +33,5 @@ export class HomeComponent implements OnInit {
   public profilePage() {
     this.router.navigate(['/profile']);
   }
+
 }
