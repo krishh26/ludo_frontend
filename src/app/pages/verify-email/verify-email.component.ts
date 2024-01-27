@@ -15,7 +15,7 @@ import { SUCCESS } from '../constant/response-status.const';
 export class VerifyEmailComponent implements OnInit {
 
   defaultLoginForm = {
-    userName: new FormControl("", [Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+    userName: new FormControl("", [Validators.required]),
   };
 
   verifyEmailForm = new FormGroup(this.defaultLoginForm, []);
@@ -42,12 +42,11 @@ export class VerifyEmailComponent implements OnInit {
     this.verifyEmailForm.markAllAsTouched();
     if (this.verifyEmailForm.valid) {
       this.showLoader = true;
-      this.authService.login(this.verifyEmailForm.value).subscribe((response) => {
+      this.authService.verifyEmail(this.verifyEmailForm.value).subscribe((response) => {
         if (response?.status == SUCCESS) {
-          this.localStorageService.setLogger(response?.data);
           this.showLoader = false;
-          this.router.navigateByUrl('/home');
-          this.notificationService.showSuccess(response?.message || 'User login successfully');
+          this.router.navigateByUrl('/forgot-password', { state: { userName: this.verifyEmailForm.controls.userName.value } });
+          this.notificationService.showSuccess(response?.message || 'User Verify Successfully');
         } else {
           this.showLoader = false;
           this.notificationService.showError(response?.message);

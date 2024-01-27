@@ -7,6 +7,7 @@ import { LocalStorageService } from 'src/app/services/local-storage/local-storag
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { SUCCESS } from '../constant/response-status.const';
+import { CustomValidation } from '../shared/custome-validation';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent extends BaseLogin implements OnInit {
     full_name: new FormControl("", [Validators.required, Validators.pattern(Patterns.name)]),
     mobile_no: new FormControl("", [Validators.required, Validators.pattern(Patterns.mobile)]),
     email: new FormControl("", [Validators.required, Validators.pattern(Patterns.email)]),
-    password: new FormControl("", [Validators.required, Validators.pattern(Patterns.password)]),
+    password: new FormControl("", [Validators.required]),
     // confirm_password: new FormControl("", Validators.required),
   };
 
@@ -45,10 +46,10 @@ export class RegisterComponent extends BaseLogin implements OnInit {
   NumberOnly(event: any): boolean {
     const charCode = event.which ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
+      return false;
     }
     return true;
-}
+  }
 
   submitForm() {
     this.signUpForm.markAllAsTouched();
@@ -56,7 +57,6 @@ export class RegisterComponent extends BaseLogin implements OnInit {
       this.showLoader = true;
       this.authService.registerUser(this.signUpForm.value).subscribe((result) => {
         if (result?.status == SUCCESS) {
-          this.localStorageService.setLogger(result?.data);
           this.router.navigateByUrl('/');
           this.showLoader = false;
           this.notificationService.showSuccess(result?.message || 'User successfully register')

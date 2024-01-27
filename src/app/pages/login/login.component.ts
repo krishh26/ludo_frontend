@@ -30,13 +30,13 @@ export class LoginComponent extends BaseLogin implements OnInit {
     private notificationService: NotificationService,
   ) {
     super()
-    // this.loginUser = this.localStorageService.getLogger();
+    this.loginUser = this.localStorageService.getLogger();
   }
 
   ngOnInit(): void {
-    // if (this.loginUser) {
-    //   this.router.navigateByUrl('/home');
-    // }
+    if (this.loginUser) {
+      this.router.navigateByUrl('/home');
+    }
   }
 
   // Function to use for the login the user
@@ -46,7 +46,7 @@ export class LoginComponent extends BaseLogin implements OnInit {
       this.showLoader = true;
       this.authService.login(this.loginForm.value).subscribe((response) => {
         if (response?.status == SUCCESS) {
-          this.localStorageService.setLogger(response?.data);
+          this.localStorageService.setLogger(response?.payload);
           this.showLoader = false;
           this.router.navigateByUrl('/home');
           this.notificationService.showSuccess(response?.message || 'User login successfully');
