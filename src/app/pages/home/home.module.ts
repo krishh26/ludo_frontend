@@ -15,6 +15,8 @@ import { TermsConditionComponent } from './terms-condition/terms-condition.compo
 import { RefundCancelattionPolicyComponent } from './refund-cancelattion-policy/refund-cancelattion-policy.component';
 import { ResponsibleGamingComponent } from './responsible-gaming/responsible-gaming.component';
 import { PlatformCommissionComponent } from './platform-commission/platform-commission.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { TransitionHistoryComponent } from './transition-history/transition-history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,7 +31,9 @@ const routes: Routes = [
   { path: 'terms-and-condition', component: TermsConditionComponent },
   { path: 'refund-policy', component: RefundCancelattionPolicyComponent },
   { path: 'responsible-gaming', component: ResponsibleGamingComponent },
-  { path: 'platform-commission', component: PlatformCommissionComponent }
+  { path: 'platform-commission', component: PlatformCommissionComponent },
+  { path: 'wallet', component: WalletComponent },
+  { path: 'transition-history', component: TransitionHistoryComponent },
 ];
 @NgModule({
   declarations: [
@@ -44,7 +48,9 @@ const routes: Routes = [
     PlatformCommissionComponent,
     TermsConditionComponent,
     RefundCancelattionPolicyComponent,
-    ResponsibleGamingComponent
+    ResponsibleGamingComponent,
+    WalletComponent,
+    TransitionHistoryComponent
   ],
   imports: [
     CommonModule,

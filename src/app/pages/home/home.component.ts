@@ -26,4 +26,5 @@ export class HomeComponent {
   public profilePage() {
     this.router.navigate(['/profile']);
   }
+
 }
