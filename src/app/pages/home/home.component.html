@@ -2,7 +2,7 @@
   <div class="scroll-bar-wrap">
     <!-- side menu -->
     <ul class="nav scroll-box fs-14 px-0 ps-4">
-      <li class="fs-14 py-3" (click)="profilePage()">
+      <li class="fs-14 py-3" routerLink="/home/profile">
         <a>
           <span class="d-flex align-items-center">
             <span class="icon-size d-flex align-items-center justify-content-center me-2">
@@ -199,7 +199,7 @@
                 <path d="M3,15H21V13H3V15M3,19H21V17H3V19M3,11H21V9H3V11M3,5V7H21V5H3Z" />
               </svg>
             </button>
-            <a class="navbar-brand" style="height: 2rem; width: 3.5rem" href="#">
+            <a class="navbar-brand" style="height: 2rem; width: 3.5rem" routerLink="/home">
               <img class="h-100 w-100" style="object-fit: contain" src="./../../../assets/img/logo-new.png"
                 alt="logo" />
             </a>
@@ -221,11 +221,14 @@
                   <span class="px-2">+</span>
                 </div>
               </button>
-              <button class="btn btn-secondary fs-14 me-2" type="submit" (click)="logOut()">
+              <button *ngIf="!loginUser" class="btn btn-secondary fs-14 me-2" type="submit" (click)="logOut()">
                 SignUp
               </button>
-              <button class="btn btn-secondary fs-14" routerLink="/" type="button">
+              <button *ngIf="!loginUser" class="btn btn-secondary fs-14" routerLink="/" type="button">
                 Login
+              </button>
+              <button *ngIf="loginUser" class="btn btn-secondary fs-14" type="button" (click)="logOut()">
+                Logout
               </button>
             </div>
           </div>
