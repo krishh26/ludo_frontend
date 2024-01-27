@@ -8,18 +8,17 @@ import { BaseLogin } from '../shared/base-login';
 import { SUCCESS } from '../constant/response-status.const';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-verify-email',
+  templateUrl: './verify-email.component.html',
+  styleUrls: ['./verify-email.component.css']
 })
-export class LoginComponent extends BaseLogin implements OnInit {
+export class VerifyEmailComponent implements OnInit {
 
   defaultLoginForm = {
     userName: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required]),
   };
 
-  loginForm = new FormGroup(this.defaultLoginForm, []);
+  verifyEmailForm = new FormGroup(this.defaultLoginForm, []);
   loginUser: any;
   showLoader: boolean = false;
 
@@ -29,27 +28,25 @@ export class LoginComponent extends BaseLogin implements OnInit {
     private router: Router,
     private notificationService: NotificationService,
   ) {
-    super()
-    this.loginUser = this.localStorageService.getLogger();
+    // this.loginUser = this.localStorageService.getLogger();
   }
 
   ngOnInit(): void {
-    if (this.loginUser) {
-      this.router.navigateByUrl('/home');
-    }
+    // if (this.loginUser) {
+    //   this.router.navigateByUrl('/home');
+    // }
   }
 
   // Function to use for the login the user
-  login(): void {
-    this.loginForm.markAllAsTouched();
-    if (this.loginForm.valid) {
+  verifyEmail(): void {
+    this.verifyEmailForm.markAllAsTouched();
+    if (this.verifyEmailForm.valid) {
       this.showLoader = true;
-      this.authService.login(this.loginForm.value).subscribe((response) => {
+      this.authService.verifyEmail(this.verifyEmailForm.value).subscribe((response) => {
         if (response?.status == SUCCESS) {
-          this.localStorageService.setLogger(response?.payload);
           this.showLoader = false;
-          this.router.navigateByUrl('/home');
-          this.notificationService.showSuccess(response?.message || 'User login successfully');
+          this.router.navigateByUrl('/forgot-password', { state: { userName: this.verifyEmailForm.controls.userName.value } });
+          this.notificationService.showSuccess(response?.message || 'User Verify Successfully');
         } else {
           this.showLoader = false;
           this.notificationService.showError(response?.message);

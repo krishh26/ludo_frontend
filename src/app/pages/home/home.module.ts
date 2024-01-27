@@ -6,20 +6,30 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GameHomeComponent } from './game-home/game-home.component';
 import { RuleComponent } from './rule/rule.component';
 import { KycModalComponent } from './kyc-modal/kyc-modal.component';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { TermsConditionComponent } from './terms-condition/terms-condition.component';
+import { RefundCancelattionPolicyComponent } from './refund-cancelattion-policy/refund-cancelattion-policy.component';
+import { ResponsibleGamingComponent } from './responsible-gaming/responsible-gaming.component';
+import { PlatformCommissionComponent } from './platform-commission/platform-commission.component';
 
-// import {MatSidenavModule} from '@angular/material/sidenav';
-// import {MatButtonModule} from '@angular/material/button';
-// import {Component} from '@angular/core';
-// import {MatDialogModule} from '@angular/material/dialog';
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'game-home', component: GameHomeComponent },
   { path: 'rule', component: RuleComponent },
   { path: 'kyc', component: KycModalComponent },
   { path: 'profile', component: ProfileComponent },
-  { path : '**', redirectTo : 'home' }
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'terms-and-condition', component: TermsConditionComponent },
+  { path: 'refund-policy', component: RefundCancelattionPolicyComponent },
+  { path: 'responsible-gaming', component: ResponsibleGamingComponent },
+  { path: 'platform-commission', component: PlatformCommissionComponent }
 ];
 @NgModule({
   declarations: [
@@ -28,17 +38,18 @@ const routes: Routes = [
     GameHomeComponent,
     KycModalComponent,
     ProfileComponent,
-    
+    AboutUsComponent,
+    PrivacyPolicyComponent,
+    ContactUsComponent,
+    PlatformCommissionComponent,
+    TermsConditionComponent,
+    RefundCancelattionPolicyComponent,
+    ResponsibleGamingComponent
   ],
   imports: [
     CommonModule,
-    // Component,
     RouterModule.forChild(routes),
     MatInputModule
-    // MatSidenavModule,
-    // MatButtonModule,
-    // MatDialogModule,
-
   ]
 })
 export class HomeModule { }
