@@ -15,12 +15,12 @@ export class AppComponent {
     private localStorageService: LocalStorageService,
     private router: Router,
   ) {
-    this.loginUser = this.localStorageService.getLogger();
+    // this.loginUser = this.localStorageService.getLogger();
   }
 
   ngOnInit(): void {
-    if (!this.loginUser) {
-      this.router.navigateByUrl('/')
-    }
+    // if (!this.loginUser) {
+    //   this.router.navigateByUrl('/')
+    // }
   }
 }

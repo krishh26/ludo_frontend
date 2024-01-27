@@ -8,6 +8,13 @@ import { RuleComponent } from './rule/rule.component';
 import { KycModalComponent } from './kyc-modal/kyc-modal.component';
 import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { TermsConditionComponent } from './terms-condition/terms-condition.component';
+import { RefundCancelattionPolicyComponent } from './refund-cancelattion-policy/refund-cancelattion-policy.component';
+import { ResponsibleGamingComponent } from './responsible-gaming/responsible-gaming.component';
+import { PlatformCommissionComponent } from './platform-commission/platform-commission.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +23,13 @@ const routes: Routes = [
   { path: 'rule', component: RuleComponent },
   { path: 'kyc', component: KycModalComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'terms-and-condition', component: TermsConditionComponent },
+  { path: 'refund-policy', component: RefundCancelattionPolicyComponent },
+  { path: 'responsible-gaming', component: ResponsibleGamingComponent },
+  { path: 'platform-commission', component: PlatformCommissionComponent }
 ];
 @NgModule({
   declarations: [
@@ -24,6 +38,13 @@ const routes: Routes = [
     GameHomeComponent,
     KycModalComponent,
     ProfileComponent,
+    AboutUsComponent,
+    PrivacyPolicyComponent,
+    ContactUsComponent,
+    PlatformCommissionComponent,
+    TermsConditionComponent,
+    RefundCancelattionPolicyComponent,
+    ResponsibleGamingComponent
   ],
   imports: [
     CommonModule,

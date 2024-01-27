@@ -25,12 +25,12 @@ const routes: Routes = [
     component: ForgotPasswordComponent,
   },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
   },
   {
     path: '**',
-    redirectTo : ''
+    redirectTo : 'home'
   }
 ];
 

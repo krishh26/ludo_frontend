@@ -1,4 +1,5 @@
 <nav class="nav_cont bg-white" style="box-shadow: 1px 1px 9px #a7a7a7">
+  <!-- // *ngIf="loginUser" -->
   <div class="scroll-bar-wrap">
     <!-- side menu -->
     <ul class="nav scroll-box fs-14 px-0 ps-4">
@@ -22,7 +23,7 @@
           </span>
         </a>
       </li>
-      <li class="fs-14 py-3">
+      <!-- <li class="fs-14 py-3">
         <a>
           <span class="d-flex align-items-center">
             <span class="icon-size d-flex align-items-center justify-content-center me-2">
@@ -41,7 +42,7 @@
             </svg>
           </span>
         </a>
-      </li>
+      </li> -->
 
       <li class="fs-14 py-3">
         <a>
@@ -122,7 +123,7 @@
           </span>
         </a>
       </li>
-      <li class="fs-14 py-3">
+      <!-- <li class="fs-14 py-3">
         <a>
           <span class="d-flex align-items-center">
             <span class="icon-size d-flex align-items-center justify-content-center me-2">
@@ -141,8 +142,8 @@
             </svg>
           </span>
         </a>
-      </li>
-      <li class="fs-14 py-3">
+      </li> -->
+      <!-- <li class="fs-14 py-3">
         <a>
           <span class="d-flex align-items-center">
             <span class="icon-size d-flex align-items-center justify-content-center me-2">
@@ -161,8 +162,8 @@
             </svg>
           </span>
         </a>
-      </li>
-      <li class="fs-14 py-3">
+      </li> -->
+      <!-- <li class="fs-14 py-3">
         <a>
           <span class="d-flex align-items-center">
             <span class="icon-size d-flex align-items-center justify-content-center me-2">
@@ -181,7 +182,7 @@
             </svg>
           </span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="cover-bar"></div>
   </div>
@@ -221,13 +222,13 @@
                   <span class="px-2">+</span>
                 </div>
               </button>
-              <button *ngIf="!loginUser" class="btn btn-secondary fs-14 me-2" type="submit" (click)="logOut()">
+              <button   class="btn btn-secondary fs-14 me-2" type="button" routerLink="/register">
                 SignUp
               </button>
-              <button *ngIf="!loginUser" class="btn btn-secondary fs-14" routerLink="/" type="button">
+              <button class="btn btn-secondary fs-14 me-2" routerLink="/login" type="button">
                 Login
               </button>
-              <button *ngIf="loginUser" class="btn btn-secondary fs-14" type="button" (click)="logOut()">
+              <button class="btn btn-secondary fs-14" type="button" (click)="logOut()">
                 Logout
               </button>
             </div>
@@ -238,7 +239,8 @@
   </header>
 
   <!-- Main content -->
-  <main class="wrapper position-relative" style="z-index: 0">
+  <!-- [ngClass]="{ 'wrapper position-relative' :  loginUser }" -->
+  <main class="wrapper position-relative"  style="z-index: 0">
     <div class="p-4">
       <router-outlet></router-outlet>
     </div>
