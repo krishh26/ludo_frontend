@@ -54,7 +54,7 @@ export class WalletWithdrawServiceService {
     this.httpClient
       .get<any>(this.baseUrl + APIEndPOint.GET_WALLET_AMOUNT).subscribe(response => {
         console.log('response wallet', response)
-        this.setUserAmount(response?.payload?.data?.userAmount)
+        this.setUserAmount(response?.payload?.data?.walletAmount)
       });
   }
 
