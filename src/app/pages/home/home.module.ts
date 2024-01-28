@@ -17,6 +17,8 @@ import { ResponsibleGamingComponent } from './responsible-gaming/responsible-gam
 import { PlatformCommissionComponent } from './platform-commission/platform-commission.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { TransitionHistoryComponent } from './transition-history/transition-history.component';
+import { AddWalletComponent } from './add-wallet/add-wallet.component';
+import { AddWithdrawComponent } from './add-withdraw/add-withdraw.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'platform-commission', component: PlatformCommissionComponent },
   { path: 'wallet', component: WalletComponent },
   { path: 'transition-history', component: TransitionHistoryComponent },
+  { path: 'add-wallet', component: AddWalletComponent },
+  { path: 'add-withdraw', component: AddWithdrawComponent },
 ];
 @NgModule({
   declarations: [
@@ -50,7 +54,9 @@ const routes: Routes = [
     RefundCancelattionPolicyComponent,
     ResponsibleGamingComponent,
     WalletComponent,
-    TransitionHistoryComponent
+    TransitionHistoryComponent,
+    AddWalletComponent,
+    AddWithdrawComponent
   ],
   imports: [
     CommonModule,
