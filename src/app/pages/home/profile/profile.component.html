@@ -5,11 +5,11 @@
                 <div class="profile-outer mx-auto mb-3">
                     <img class="h-100 w-100" src="https://d37om4gxfn0aox.cloudfront.net/static-content/front/images/author.svg" alt="profile-photo">
                 </div>
-                <p class="fs-16 mb-2">8574X 74XXX</p>
+                <p class="fs-16 mb-2"> {{ loginUser?.mobile_no }}</p>
                 <div class="mb-4">
-                    <input class="border fs-16 rounded p-2 mb-2" type="text">
+                    <input class="border fs-16 rounded p-2 mb-2" type="text" [formControl]="full_name">
                     <div class="d-flex align-items-center justify-content-center">
-                        <p class="fs-16 bold mb-1 mx-2">WFJSMFCJ</p>
+                        <p class="fs-16 bold mb-1 mx-2">{{ loginUser?.full_name }}</p>
                         <button class="btn btn-primary edit_icon d-flex align-items-center justify-content-center p-0 rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 24 24"><title>circle-edit-outline</title><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" fill="#fff"/></svg></button>
                     </div>
                 </div>
@@ -42,15 +42,15 @@
                         <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
                     </div>
                 </div>
-           
+
             </div>
             <div class="row px-4">
                 <div class="col-12">
                     <div class="d-flex align-items-center fs-16 p-3 mb-0">
                         <img height="40px" width="40px" src="https://d37om4gxfn0aox.cloudfront.net/static-content/front/images/global-cash-won-green-circular.png">
                         <div class="ms-4">
-                            <p class="fs-14 bold mb-0">CASH WON</p>
-                            <p class="d-flex align-items-center mb-0"><img  src="../../../../assets/img/money.png" height="20px" width="20px" alt="money" class="me-1"> 0</p>
+                            <p class="fs-14 bold mb-0">Available Cash</p>
+                            <p class="d-flex align-items-center mb-0"><img  src="../../../../assets/img/money.png" height="20px" width="20px" alt="money" class="me-1"> &nbsp; Rs. {{totalAmount || '0'}}</p>
                         </div>
                     </div>
                 </div>

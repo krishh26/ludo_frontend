@@ -20,6 +20,8 @@ import { TransitionHistoryComponent } from './transition-history/transition-hist
 import { AddWalletComponent } from './add-wallet/add-wallet.component';
 import { AddWithdrawComponent } from './add-withdraw/add-withdraw.component';
 import { ReferEarnComponent } from './refer-earn/refer-earn.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -64,7 +66,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class HomeModule { }
