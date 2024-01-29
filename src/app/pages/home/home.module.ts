@@ -19,6 +19,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { TransitionHistoryComponent } from './transition-history/transition-history.component';
 import { AddWalletComponent } from './add-wallet/add-wallet.component';
 import { AddWithdrawComponent } from './add-withdraw/add-withdraw.component';
+import { ReferEarnComponent } from './refer-earn/refer-earn.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'transition-history', component: TransitionHistoryComponent },
   { path: 'add-wallet', component: AddWalletComponent },
   { path: 'add-withdraw', component: AddWithdrawComponent },
+  { path: 'refer-earn', component: ReferEarnComponent },
 ];
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ const routes: Routes = [
     WalletComponent,
     TransitionHistoryComponent,
     AddWalletComponent,
-    AddWithdrawComponent
+    AddWithdrawComponent,
+    ReferEarnComponent
   ],
   imports: [
     CommonModule,
