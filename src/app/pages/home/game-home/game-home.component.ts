@@ -12,6 +12,6 @@ export class GameHomeComponent {
   ) {}
 
   public rule() {
-    this.router.navigate(['/rule']);
+    this.router.navigate(['/home/rule']);
   }
 }
