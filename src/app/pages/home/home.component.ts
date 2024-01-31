@@ -23,12 +23,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.walletService.getWalletAmount();
+    if(this.loginUser) {
+      this.walletService.getWalletAmount();
+    }
   }
   // showFiller = false;
   public logOut() {
-    this.localStorageService.clearStorage();
     this.router.navigate(['/home/home']);
+    this.localStorageService.clearStorage();
+    this.loginUser = this.localStorageService.getLogger();
+    // window.location.reload();
   }
 
   public profilePage() {
