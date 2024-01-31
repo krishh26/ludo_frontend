@@ -1,13 +1,11 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-
-  imageChangeEvent: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);;
+  private hideShowMenu = new BehaviorSubject<boolean>(false);
+  hideShowMenuButton$ = this.hideShowMenu.asObservable();
 
   constructor() { }
 
@@ -28,8 +26,10 @@ export class LocalStorageService {
   getLogger(): void | any {
     const loginUser: any = localStorage.getItem('loginUser');
     if(loginUser !== 'undefined') {
+      this.setButtonHideShow(true);
       return JSON.parse(loginUser);
     }
+    this.setButtonHideShow(false);
     return null;
   }
 
@@ -44,11 +44,8 @@ export class LocalStorageService {
     localStorage.clear();
   }
 
-  emitImageChangeEvent(imageData: string): void {
-    this.imageChangeEvent.next(imageData);
-  }
-
-  getImageData(): BehaviorSubject<string | null> {
-    return this.imageChangeEvent;
+  // set notification count
+  setButtonHideShow(flag: boolean) {
+    this.hideShowMenu.next(flag);
   }
 }

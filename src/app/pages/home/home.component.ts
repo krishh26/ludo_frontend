@@ -11,6 +11,7 @@ import { WalletWithdrawServiceService } from 'src/app/services/wallet-withdraw-s
 export class HomeComponent implements OnInit {
   loginUser : any;
   totalAmount: any = 0;
+  hideShowMenuButton : boolean = false;
 
   constructor(
     private router: Router,
@@ -34,4 +35,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
+  public hideShowMenu() {
+    this.hideShowMenuButton = !this.hideShowMenuButton;
+  }
 }

@@ -1,4 +1,4 @@
-<nav class="nav_cont bg-white" style="box-shadow: 1px 1px 9px #a7a7a7">
+<nav class="nav_cont bg-white" style="box-shadow: 1px 1px 9px #a7a7a7" *ngIf="loginUser && hideShowMenuButton">
   <!-- // *ngIf="loginUser" -->
   <div class="scroll-bar-wrap">
     <!-- side menu -->
@@ -215,7 +215,7 @@
       <div class="header-right flex-grow-1 d-flex align-items-center">
         <nav class="w-100 navbar navbar-expand-lg bg-white shadow">
           <div class="container-fluid">
-            <button matTooltip="Expand" type="checkbox" class="btn sidemenu-icon me-2" color="light">
+            <button *ngIf="loginUser" (click)="hideShowMenu()" matTooltip="Expand" type="checkbox" class="btn sidemenu-icon me-2" color="light">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <title>reorder-horizontal</title>
                 <path d="M3,15H21V13H3V15M3,19H21V17H3V19M3,11H21V9H3V11M3,5V7H21V5H3Z" />
@@ -230,7 +230,7 @@
                   </button> -->
 
             <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
-              <button type="button" class="btn d-flex justify-content-end border p-0 me-2">
+              <button *ngIf="loginUser" type="button" class="btn d-flex justify-content-end border p-0 me-2">
                 <div class="h-100 d-flex align-items-center rounded bg-gray">
                   <div class="d-flex align-items-center rounded-start py-1 px-2" style="background-color: #f7f7f7">
                     <img class="me-1" src="../../../../assets/img/money.png" height="24px" width="24px" alt="money">
@@ -243,13 +243,13 @@
                   <span class="px-2">+</span>
                 </div>
               </button>
-              <button   class="btn btn-secondary fs-14 me-2" type="button" routerLink="/register">
+              <button  *ngIf="!loginUser" class="btn btn-secondary fs-14 me-2" type="button" routerLink="/register">
                 SignUp
               </button>
-              <button class="btn btn-secondary fs-14 me-2" routerLink="/login" type="button">
+              <button *ngIf="!loginUser" class="btn btn-secondary fs-14 me-2" routerLink="/login" type="button">
                 Login
               </button>
-              <button class="btn btn-secondary fs-14" type="button" (click)="logOut()">
+              <button *ngIf="loginUser" class="btn btn-secondary fs-14" type="button" (click)="logOut()">
                 Logout
               </button>
             </div>
@@ -261,7 +261,7 @@
 
   <!-- Main content -->
   <!-- [ngClass]="{ 'wrapper position-relative' :  loginUser }" -->
-  <main class="wrapper position-relative"  style="z-index: 0">
+  <main [ngClass]="{ 'wrapper position-relative' : loginUser && hideShowMenuButton }"  style="z-index: 0">
     <div class="p-4">
       <router-outlet></router-outlet>
     </div>
