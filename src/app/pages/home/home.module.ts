@@ -23,6 +23,7 @@ import { ReferEarnComponent } from './refer-earn/refer-earn.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'add-wallet', component: AddWalletComponent },
   { path: 'add-withdraw', component: AddWithdrawComponent },
   { path: 'refer-earn', component: ReferEarnComponent },
+  { path: 'contact-us', component: ContactUsComponent },
 ];
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ const routes: Routes = [
     TransitionHistoryComponent,
     AddWalletComponent,
     AddWithdrawComponent,
-    ReferEarnComponent
+    ReferEarnComponent,
+
   ],
   imports: [
     CommonModule,
