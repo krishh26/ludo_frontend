@@ -28,6 +28,7 @@ export class GameHomeComponent implements OnInit {
   ) {
     this.loginUser = this.localStorageService.getLogger();
     this.walletService.userTotalAmount$.subscribe((amount) => this.walletAmount = amount);
+    this.gameService.gameBattleList$.subscribe((list) => this.battleList = list);
   }
 
   ngOnInit(): void {
@@ -81,7 +82,7 @@ export class GameHomeComponent implements OnInit {
     this.gameService.createGameTable(payload).subscribe((response) => {
       if (response?.status == SUCCESS) {
         console.log('testing game table', response);
-        this.getBattleList();
+        // this.getBattleList();
         this.notificationService.showSuccess(response?.message || 'Game created.');
       } else {
         this.notificationService.showError('Please Retry Game Not Created');
