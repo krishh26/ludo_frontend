@@ -6,6 +6,8 @@ import { FormControl } from '@angular/forms';
 import { WalletWithdrawServiceService } from 'src/app/services/wallet-withdraw-service/wallet-withdraw-service.service';
 import { GameService } from 'src/app/services/game-service/game.service';
 import { SUCCESS } from '../../constant/response-status.const';
+import { LudoGameNameComponent } from './ludo-game-name/ludo-game-name.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-game-home',
@@ -24,7 +26,8 @@ export class GameHomeComponent implements OnInit {
     private router: Router,
     private walletService: WalletWithdrawServiceService,
     private notificationService: NotificationService,
-    private gameService: GameService
+    private gameService: GameService,
+    private modalService: NgbModal
   ) {
     this.loginUser = this.localStorageService.getLogger();
     this.walletService.userTotalAmount$.subscribe((amount) => this.walletAmount = amount);
@@ -44,7 +47,7 @@ export class GameHomeComponent implements OnInit {
   public async getBattleList() {
     this.battleList = [];
     this.gameService.getBattleList().subscribe((response) => {
-      if(response?.status == SUCCESS) {
+      if (response?.status == SUCCESS) {
         this.battleList = response?.payload?.data;
         console.log(this.battleList)
       } else {
@@ -54,7 +57,6 @@ export class GameHomeComponent implements OnInit {
       this.notificationService.showError('Something went wrong.');
     });
   }
-
 
   // Create battle
   public createBattle(): any {
@@ -73,46 +75,108 @@ export class GameHomeComponent implements OnInit {
       return this.notificationService.showError('Please Add Amount In Wallet.');
     }
 
-    const payload = {
-      user_id: this.loginUser?.id,
-      amount: this.battleAmount.value,
-      name: this.loginUser?.ludo_name
-    }
+    let updatedName: any;
 
-    this.gameService.createGameTable(payload).subscribe((response) => {
-      if (response?.status == SUCCESS) {
-        console.log('testing game table', response);
-        // this.getBattleList();
-        this.notificationService.showSuccess(response?.message || 'Game created.');
-      } else {
-        this.notificationService.showError('Please Retry Game Not Created');
+    if (!this.loginUser?.ludo_name) {
+      const modalRef = this.modalService.open(LudoGameNameComponent);
+
+      modalRef.result.then((result) => {
+        if (result) {
+          updatedName = result['ludo_name'];
+
+          const payload = {
+            user_id: this.loginUser?.id,
+            amount: this.battleAmount.value,
+            name: this.loginUser?.ludo_name || updatedName
+          }
+
+          this.gameService.createGameTable(payload).subscribe((response) => {
+            if (response?.status == SUCCESS) {
+              this.notificationService.showSuccess(response?.message || 'Game created.');
+            } else {
+              this.notificationService.showError('Please Retry Game Not Created');
+            }
+          }, (error) => {
+            this.notificationService.showError('Please Retry Game Not Created');
+          });
+        } else {
+          console.log('result close', result);
+          return this.notificationService.showError('Please Try After SomeTime');
+        }
+      });
+    } else {
+      const payload = {
+        user_id: this.loginUser?.id,
+        amount: this.battleAmount.value,
+        name: this.loginUser?.ludo_name || updatedName
       }
-    }, (error) => {
-      this.notificationService.showError('Please Retry Game Not Created');
-    });
+
+      this.gameService.createGameTable(payload).subscribe((response) => {
+        if (response?.status == SUCCESS) {
+          this.notificationService.showSuccess(response?.message || 'Game created.');
+        } else {
+          this.notificationService.showError('Please Retry Game Not Created');
+        }
+      }, (error) => {
+        this.notificationService.showError('Please Retry Game Not Created');
+      });
+    }
   }
 
   // play game
   public playGame(battleId: number) {
-    if(!battleId) {
+    if (!battleId) {
       return this.notificationService.showError('Error');
     }
 
-    const payload = {
-      battle_id : battleId,
-      user_id: this.loginUser?.id,
-      name: this.loginUser?.ludo_name
+    let updatedName: any;
+
+    if (!this.loginUser?.ludo_name) {
+      const modalRef = this.modalService.open(LudoGameNameComponent);
+
+      modalRef.result.then((result) => {
+        if (result) {
+          updatedName = result['ludo_name'];
+
+          const payload = {
+            battle_id: battleId,
+            user_id: this.loginUser?.id,
+            name: this.loginUser?.ludo_name || updatedName
+          }
+
+          this.gameService.playGame(payload).subscribe((response) => {
+            if (response?.status == SUCCESS) {
+              // this.getBattleList()
+              this.router.navigateByUrl('/home/show-game-code')
+            } else {
+              this.notificationService.showError('Something Went Wrong');
+            }
+          }, (error) => {
+            this.notificationService.showError('Something Went Wrong');
+          });
+        } else {
+          return this.notificationService.showError('Please Try After SomeTime');
+        }
+      });
+    } else {
+      const payload = {
+        battle_id: battleId,
+        user_id: this.loginUser?.id,
+        name: this.loginUser?.ludo_name || updatedName
+      }
+
+      this.gameService.playGame(payload).subscribe((response) => {
+        if (response?.status == SUCCESS) {
+          // this.getBattleList()
+          this.router.navigateByUrl('/home/show-game-code')
+        } else {
+          this.notificationService.showError('Something Went Wrong');
+        }
+      }, (error) => {
+        this.notificationService.showError('Something Went Wrong');
+      });
     }
 
-    this.gameService.playGame(payload).subscribe((response) => {
-      if(response?.status == SUCCESS) {
-        console.log(response)
-        this.getBattleList()
-      } else {
-        this.notificationService.showError('Something Went Wrong');
-      }
-    }, (error) => {
-      this.notificationService.showError('Something Went Wrong');
-    });
+
   }
 }

@@ -11,6 +11,7 @@ export enum AuthEndPoint {
   LOGIN_USER = '/user/auth/login',
   VERIFY_EMAIL = '/user/auth/verify',
   FORGOT_PASSWORD = '/user/auth/forgot-password',
+  UPDATE_USER_LUDO_NAME = "/user/update-ludo-name",
 }
 
 @Injectable({
@@ -53,4 +54,9 @@ export class AuthService {
       .post<any>(this.baseUrl + AuthEndPoint.FORGOT_PASSWORD, payload);
   }
 
+  // update user ludo name
+  updateLudoName(payload: any) :Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + AuthEndPoint.UPDATE_USER_LUDO_NAME, payload);
+  }
 }

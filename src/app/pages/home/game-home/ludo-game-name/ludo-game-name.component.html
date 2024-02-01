@@ -1,0 +1,26 @@
+<div class="row">
+  <div
+    class="col-12 d-flex align-items-center justify-content-center flex-column m-2 p-2"
+  >
+    <p class="fs-20 bold opacity-8 mb-2">Enter Ludo App User Name</p>
+    <div class="d-flex justify-content-center w-50 fs-14 input-group mb-3">
+      <input
+        type="text"
+        [formControl]="ludo_name"
+        class="form-control fs-14"
+        width="70%"
+        placeholder="Ludo Name"
+        aria-label="Amount"
+        aria-describedby="basic-addon2"
+      />
+    </div>
+  </div>
+  <div class="col-12 d-flex justify-content-between">
+    <button type="button" class="btn btn-primary m-1" (click)="close(false)">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary m-1" (click)="submit()">
+      Submit
+    </button>
+  </div>
+</div>

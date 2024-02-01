@@ -21,6 +21,8 @@ import { AddWalletComponent } from './add-wallet/add-wallet.component';
 import { AddWithdrawComponent } from './add-withdraw/add-withdraw.component';
 import { ReferEarnComponent } from './refer-earn/refer-earn.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LudoGameNameComponent } from './game-home/ludo-game-name/ludo-game-name.component';
+import { ShowGameCodeComponent } from './show-game-code/show-game-code.component';
 
 
 
@@ -44,6 +46,7 @@ const routes: Routes = [
   { path: 'add-withdraw', component: AddWithdrawComponent },
   { path: 'refer-earn', component: ReferEarnComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'show-game-code', component: ShowGameCodeComponent },
 ];
 @NgModule({
   declarations: [
@@ -64,6 +67,8 @@ const routes: Routes = [
     AddWalletComponent,
     AddWithdrawComponent,
     ReferEarnComponent,
+    LudoGameNameComponent,
+    ShowGameCodeComponent,
 
   ],
   imports: [
