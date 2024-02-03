@@ -1,17 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
 @import './variables';
 // $theme-colors: (
 //   "primary": #d97b00,
 //   "danger": #ff4136
 // ) !default;
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "./../../node_modules/bootstrap/scss/bootstrap"; 
+@import "./../../node_modules/bootstrap/scss/bootstrap";
   // @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
   // @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
- 
+
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap');
- 
+
 
   html{
     --nav-width:18rem;

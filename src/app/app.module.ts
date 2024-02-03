@@ -35,8 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: false,
+      // positionClass: 'toast-top-right',
+      // preventDuplicates: false,
     }),
   ],
   providers: [
