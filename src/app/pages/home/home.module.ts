@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'add-withdraw', component: AddWithdrawComponent },
   { path: 'refer-earn', component: ReferEarnComponent },
   { path: 'contact-us', component: ContactUsComponent },
-  { path: 'show-game-code', component: ShowGameCodeComponent },
+  { path: 'show-game-code/:gameTableId', component: ShowGameCodeComponent },
 ];
 @NgModule({
   declarations: [

@@ -13,6 +13,7 @@ import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/c
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { APIInterceptor } from './Interceptor/ApiInterceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { APIInterceptor } from './Interceptor/ApiInterceptor';
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     HomeModule,

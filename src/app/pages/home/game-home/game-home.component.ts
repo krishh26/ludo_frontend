@@ -92,6 +92,7 @@ export class GameHomeComponent implements OnInit {
 
           this.gameService.createGameTable(payload).subscribe((response) => {
             if (response?.status == SUCCESS) {
+              this.router.navigate([`/home/show-game-code/${response?.payload?.data?.id}`]);
               this.notificationService.showSuccess(response?.message || 'Game created.');
             } else {
               this.notificationService.showError('Please Retry Game Not Created');
@@ -113,6 +114,7 @@ export class GameHomeComponent implements OnInit {
 
       this.gameService.createGameTable(payload).subscribe((response) => {
         if (response?.status == SUCCESS) {
+          this.router.navigate([`/home/show-game-code/${response?.payload?.data?.id}`]);
           this.notificationService.showSuccess(response?.message || 'Game created.');
         } else {
           this.notificationService.showError('Please Retry Game Not Created');
@@ -147,7 +149,7 @@ export class GameHomeComponent implements OnInit {
           this.gameService.playGame(payload).subscribe((response) => {
             if (response?.status == SUCCESS) {
               // this.getBattleList()
-              this.router.navigateByUrl('/home/show-game-code')
+              this.router.navigate([`/home/show-game-code/${battleId}`]);
             } else {
               this.notificationService.showError('Something Went Wrong');
             }
@@ -168,7 +170,7 @@ export class GameHomeComponent implements OnInit {
       this.gameService.playGame(payload).subscribe((response) => {
         if (response?.status == SUCCESS) {
           // this.getBattleList()
-          this.router.navigateByUrl('/home/show-game-code')
+          this.router.navigate([`/home/show-game-code/${battleId}`])
         } else {
           this.notificationService.showError('Something Went Wrong');
         }

@@ -9,7 +9,9 @@ import { SUCCESS } from 'src/app/pages/constant/response-status.const';
 export enum APIEndPOint {
   CREATE_BATTLE = "/game/get-game-code",
   GET_GAME_HISTORY = "/game/get-battle-list",
-  PLAY_GAME = "/game/pay-game"
+  PLAY_GAME = "/game/pay-game",
+  GET_SINGLE_BATTLE = '/game/get-game-table/BATTLEIID',
+  GET_USER_GAME_HISTORY = '/game/get-game-history'
 }
 
 @Injectable({
@@ -50,6 +52,13 @@ export class GameService {
     });
   }
 
+  // get single game details
+  getBattleById(battleId: string): Observable<any> {
+    const battleAPI: string = APIEndPOint.GET_SINGLE_BATTLE.replace('BATTLEIID', battleId);
+    return this.httpClient
+      .get<any>(this.baseUrl + battleAPI);
+  }
+
   // create game table or battle
   playGame(payload: any): Observable<any> {
     return this.httpClient
@@ -58,5 +67,11 @@ export class GameService {
 
   setBattleList(list: any[]) {
     this.battleList.next(list);
+  }
+
+  //  get game history for particular player or user
+  getGameHistoryForUser(): Observable<any> {
+    return this.httpClient
+      .get<any>(this.baseUrl + APIEndPOint.GET_USER_GAME_HISTORY);
   }
 }
