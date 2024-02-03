@@ -12,7 +12,8 @@ export enum AuthEndPoint {
   VERIFY_EMAIL = '/user/auth/verify',
   FORGOT_PASSWORD = '/user/auth/forgot-password',
   UPDATE_USER_LUDO_NAME = "/user/update-ludo-name",
-  GET_CONTACT_DETAILS = "/user-common/contact-us"
+  GET_CONTACT_DETAILS = "/user-common/contact-us",
+  UPDATE_USER_DETAILS = "/user/user-update"
 }
 
 @Injectable({
@@ -61,9 +62,15 @@ export class AuthService {
       .post<any>(this.baseUrl + AuthEndPoint.UPDATE_USER_LUDO_NAME, payload);
   }
 
-  //  get game history or get battle details
+  //  get contact details
   getContactDetails(): Observable<any> {
     return this.httpClient
       .get<any>(this.baseUrl + AuthEndPoint.GET_CONTACT_DETAILS);
+  }
+
+  // update user ludo name
+  updateUserDetails(payload: any): Observable<any> {
+    return this.httpClient
+      .post<any>(this.baseUrl + AuthEndPoint.UPDATE_USER_DETAILS, payload);
   }
 }

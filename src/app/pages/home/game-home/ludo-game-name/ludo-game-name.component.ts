@@ -32,7 +32,6 @@ export class LudoGameNameComponent implements OnInit {
   }
 
   submit(): any {
-    console.log(this.ludo_name.value)
     if (!this.ludo_name.value) {
       return this.notificationService.showError('Please Enter Ludo Name');
     }

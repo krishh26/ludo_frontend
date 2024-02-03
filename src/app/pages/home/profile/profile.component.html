@@ -5,28 +5,69 @@
                 <div class="profile-outer mx-auto mb-3">
                     <img class="h-100 w-100" src="https://d37om4gxfn0aox.cloudfront.net/static-content/front/images/author.svg" alt="profile-photo">
                 </div>
-                <p class="fs-16 mb-2"> {{ loginUser?.mobile_no }}</p>
-                <div class="mb-4">
-                    <input class="border fs-16 rounded p-2 mb-2" type="text" [formControl]="full_name">
+                <p class="fs-16 mb-2"> {{ loginUser?.full_name }} ({{ loginUser?.mobile_no }})</p>
+                <div class="mb-2">
                     <div class="d-flex align-items-center justify-content-center">
-                        <p class="fs-16 bold mb-1 mx-2">{{ loginUser?.full_name }}</p>
-                        <button class="btn btn-primary edit_icon d-flex align-items-center justify-content-center p-0 rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 24 24"><title>circle-edit-outline</title><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" fill="#fff"/></svg></button>
+                        <p class="fs-16 bold mb-1 mx-2"><input class="border fs-16 rounded" type="text" [formControl]="ludo_name"></p>
+                        <!-- <button class="btn btn-primary edit_icon d-flex align-items-center justify-content-center p-0 rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 24 24"><title>circle-edit-outline</title><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" fill="#fff"/></svg></button> -->
+                        <button (click)="updateLudoName()" class="btn btn-primary d-flex align-items-center justify-content-center">Update</button>
                     </div>
-                </div>
-            </div>
-
-             <div class="row">
-                <div class="col-12">
-                    <div class="d-flex align-items-center fs-16 border bg-white rounded p-3 mb-0">
-                        <svg class="me-3" xmlns="http://www.w3.org/2000/svg" height="28px" width="28px" viewBox="0 0 24 24"><title>wallet-outline</title><path d="M5,3C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V16.72C21.59,16.37 22,15.74 22,15V9C22,8.26 21.59,7.63 21,7.28V5A2,2 0 0,0 19,3H5M5,5H19V7H13A2,2 0 0,0 11,9V15A2,2 0 0,0 13,17H19V19H5V5M13,9H20V15H13V9M16,10.5A1.5,1.5 0 0,0 14.5,12A1.5,1.5 0 0,0 16,13.5A1.5,1.5 0 0,0 17.5,12A1.5,1.5 0 0,0 16,10.5Z" fill="#6c757d"/></svg>
-                        My Wallet
-                    </div>
+                    <p class="text-center text-danger mt-2">Note : Update Name As  Per Your Your Ludo App UserName.</p>
                 </div>
             </div>
             </div>
             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
+              <div class="row bg-g-primary px-4 mb-4 rounded">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <p class="fs-18 bold py-3 mb-0">Edit Details</p>
+                      <button class="btn btn-primary" (click)="updateProfile = !updateProfile" style="height: 60%;">
+                        <ng-container *ngIf="updateProfile">Close</ng-container>
+                        <ng-container *ngIf="!updateProfile">Open</ng-container>
+                      </button>
+                  </div>
+                <ng-container *ngIf="updateProfile">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 cursor-pointer">
+                        <label for="full_name">Ludo User Name (App User Name)</label>
+                        <div class="d-flex align-items-center fs-16 border rounded bg-white p-0 mb-4">
+                          <input class="border w-100 rounded" id="full_name" type="text" [formControl]="ludo_name">
+                            <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 cursor-pointer">
+                        <label for="full_name">Full Name</label>
+                        <div class="d-flex align-items-center fs-16 border rounded bg-white p-0 mb-4">
+                          <input class="border w-100 rounded" id="full_name" type="text" [formControl]="full_name">
+                            <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 cursor-pointer">
+                      <label for="full_name">Mobile Number</label>
+                      <div class="d-flex align-items-center fs-16 border rounded bg-white p-0 mb-4">
+                        <input class="border w-100 rounded" id="full_name" type="text" [formControl]="mobile_no">
+                          <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
+                      </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 cursor-pointer">
+                    <label for="full_name">Email</label>
+                    <div class="d-flex align-items-center fs-16 border rounded bg-white p-0 mb-4">
+                      <input class="border w-100 rounded" id="full_name" type="text" [formControl]="email">
+                        <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 cursor-pointer text-end mb-2">
+                      <button type="button" (click)="updateUser()" class="btn btn-primary">Submit</button>
+                  </div>
+                </ng-container>
+              </div>
+
             <div class="row bg-g-primary px-4 mb-4 rounded">
                 <p class="fs-18 bold py-3 mb-0">Complete Profile</p>
+                <div class="col-12 cursor-pointer" routerLink="/home/wallet">
+                    <div class="d-flex align-items-center fs-16 border bg-white rounded p-3 mb-3">
+                        <svg class="me-3" xmlns="http://www.w3.org/2000/svg" height="28px" width="28px" viewBox="0 0 24 24"><title>wallet-outline</title><path d="M5,3C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V16.72C21.59,16.37 22,15.74 22,15V9C22,8.26 21.59,7.63 21,7.28V5A2,2 0 0,0 19,3H5M5,5H19V7H13A2,2 0 0,0 11,9V15A2,2 0 0,0 13,17H19V19H5V5M13,9H20V15H13V9M16,10.5A1.5,1.5 0 0,0 14.5,12A1.5,1.5 0 0,0 16,13.5A1.5,1.5 0 0,0 17.5,12A1.5,1.5 0 0,0 16,10.5Z" fill="#6c757d"/></svg>
+                        My Wallet
+                    </div>
+                </div>
                 <div class="col-12 cursor-pointer">
                     <div class="d-flex align-items-center fs-16 border rounded bg-white p-3 mb-3" style="height: 4rem;">
                         <div class="py-2">
@@ -35,15 +76,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 cursor-pointer">
+                <div class="col-12 cursor-pointer" (click)="updateProfile = !updateProfile">
                     <div class="d-flex align-items-center fs-16 border rounded bg-white p-3 mb-4"  style="height: 4rem;">
                         <svg class="me-3" xmlns="http://www.w3.org/2000/svg"  height="28px" width="28px" viewBox="0 0 24 24"><title>email-mark-as-unread</title><path d="M18.84,7H16.22L10.5,4L4,7.41V17A2,2 0 0,1 2,15V7.17C2,6.5 2.28,6.06 2.81,5.81L10.5,2L18.05,5.81C18.5,6.09 18.78,6.5 18.84,7M7,8H20A2,2 0 0,1 22,10V19A2,2 0 0,1 20,21H7A2,2 0 0,1 5,19V10A2,2 0 0,1 7,8M20,11.67V10L13.5,13.31L7,10V11.67L13.5,15L20,11.67Z" fill="#6c757d"/></svg>
                         Update Your Email
                         <!-- <input class="border fs-12 rounded p-2" style="height:40px" type="text"> -->
                     </div>
                 </div>
-
             </div>
+
+
+
             <div class="row px-4">
                 <div class="col-12">
                     <div class="d-flex align-items-center fs-16 p-3 mb-0">
@@ -64,7 +107,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button  class="w-100 btn btn-secondary fs-18 py-3 semibold  me-2"> LOG OUT</button>
+                    <button  class="w-100 btn btn-secondary fs-18 py-3 semibold  me-2" (click)="logOut()"> LOG OUT</button>
                 </div>
             </div>
         </div>
