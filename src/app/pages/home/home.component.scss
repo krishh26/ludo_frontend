@@ -190,5 +190,7 @@ label.active {--menu: var(--primary);
 }
 
 
-
+@media (max-width: 560px){
+  .wrapper {padding-left:unset !important;}
+}
 

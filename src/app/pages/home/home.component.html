@@ -213,22 +213,24 @@
     <div class="d-flex">
       <div class="header-right flex-grow-1 d-flex align-items-center">
         <nav class="w-100 navbar navbar-expand-lg bg-white shadow">
-          <div class="container-fluid">
+          <div class="d-flex align-items-center container-fluid">
+            <div class="d-flex align-items-center"> 
             <button *ngIf="loginUser" (click)="hideShowMenu()" matTooltip="Expand" type="checkbox" class="btn sidemenu-icon me-2" color="light">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <title>reorder-horizontal</title>
                 <path d="M3,15H21V13H3V15M3,19H21V17H3V19M3,11H21V9H3V11M3,5V7H21V5H3Z" />
               </svg>
             </button>
-            <a class="navbar-brand" style="height: 2rem; width: 3.5rem" [routerLink]="['/home']">
+            <a class="navbar-brand pt-0" style="height: 2rem; width: 3.5rem" [routerLink]="['/home']">
               <img class="h-100 w-100" style="object-fit: contain" src="./../../../assets/img/logo-new.png"
                 alt="logo" />
             </a>
+          </div>
             <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button> -->
 
-            <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex justify-content-end collapse navbar-collaps" id="navbarSupportedContent">
               <button *ngIf="loginUser" type="button" class="btn d-flex justify-content-end border p-0 me-2">
                 <div class="h-100 d-flex align-items-center rounded bg-gray">
                   <div class="d-flex align-items-center rounded-start py-1 px-2" style="background-color: #f7f7f7">
