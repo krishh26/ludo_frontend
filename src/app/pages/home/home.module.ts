@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LudoGameNameComponent } from './game-home/ludo-game-name/ludo-game-name.component';
 import { ShowGameCodeComponent } from './show-game-code/show-game-code.component';
 import { GameHistoryComponent } from './game-history/game-history.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'refer-earn', component: ReferEarnComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'show-game-code/:gameTableId', component: ShowGameCodeComponent },
-  { path: 'game-history', component: GameHistoryComponent }
+  { path: 'game-history', component: GameHistoryComponent },
+  { path: 'notification', component: NotificationComponent }
 ];
 @NgModule({
   declarations: [
@@ -70,7 +72,7 @@ const routes: Routes = [
     LudoGameNameComponent,
     ShowGameCodeComponent,
     GameHistoryComponent,
-
+    NotificationComponent
   ],
   imports: [
     CommonModule,
