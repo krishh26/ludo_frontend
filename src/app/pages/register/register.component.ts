@@ -21,7 +21,7 @@ export class RegisterComponent extends BaseLogin implements OnInit {
     mobile_no: new FormControl("", [Validators.required, Validators.pattern(Patterns.mobile)]),
     email: new FormControl("", [Validators.required, Validators.pattern(Patterns.email)]),
     password: new FormControl("", [Validators.required]),
-    // confirm_password: new FormControl("", Validators.required),
+    code: new FormControl(""),
   };
 
   signUpForm = new FormGroup(this.defaultSignUpForm, [
