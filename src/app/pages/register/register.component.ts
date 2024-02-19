@@ -65,7 +65,7 @@ export class RegisterComponent extends BaseLogin implements OnInit {
           this.showLoader = false;
         }
       }, (error) => {
-        this.notificationService.showError(error?.message || 'Something went wrong!');
+        this.notificationService.showError(error?.error?.error?.message || 'Something went wrong!');
         this.showLoader = false;
       });
     }
