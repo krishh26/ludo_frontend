@@ -3,16 +3,15 @@
     <div class="d-flex justify-content-center w-50 fs-14 input-group mb-3">
     </div>
   </div>
-  <form>
+  <form [formGroup]="wonForm" (ngSubmit)="submitForm()">
 
-    <input type="file" id="myFile" name="filename">
-    <textarea id="w3review" name="w3review" rows="4" cols="50">
-      </textarea>
+    <input type="file" name="files[]" id="fileInput" (change)="addFiles($event)" accept=".jpeg, .jpg, .png">
+
     <div class="col-12 d-flex justify-content-between">
       <button type="button" class="btn btn-danger m-1" (click)="closePopUp()">
         Cancel
       </button>
-      <button type="button" class="btn btn-primary m-1" (click)="submit()">
+      <button type="submit" class="btn btn-primary m-1">
         Submit
       </button>
     </div>

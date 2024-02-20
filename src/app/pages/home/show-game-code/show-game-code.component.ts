@@ -41,6 +41,7 @@ export class ShowGameCodeComponent implements OnInit {
         if (this.battleDetails?.is_running == 2) {
           this.router.navigateByUrl('/home/game-home');
         }
+        localStorage.setItem("id", this.battleId);
         console.log('this.battleDetails', this.battleDetails);
         this.notificationService.showSuccess('Game Code Found');
       } else {
