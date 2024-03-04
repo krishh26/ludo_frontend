@@ -217,7 +217,7 @@
   <header style="position: sticky; top: 0; z-index: 500">
     <div class="d-flex">
       <div class="header-right flex-grow-1 d-flex align-items-center">
-        <nav class="w-100 navbar navbar-expand-lg bg-white shadow">
+        <nav class="w-100 navbar navbar-expand-lg bg-white shadow" style="height: 68px;">
           <div class="d-flex align-items-center container-fluid">
             <div class="d-flex align-items-center">
               <button *ngIf="loginUser" (click)="hideShowMenu()" matTooltip="Expand" type="checkbox"
@@ -228,8 +228,9 @@
                 </svg>
               </button>
               <a class="navbar-brand pt-0" style="height: 2rem; width: 3.5rem" [routerLink]="['/home']">
-                <img class="h-100 w-100" style="object-fit: contain" src="./../../../assets/img/logo-new.png"
+                <img class="h-100 w-100" style="border-radius: 20% !important; height: 40px !important;" src="./../../../assets/img/ludologo.jpg"
                   alt="logo" />
+                  <!-- style="object-fit: contain -->
               </a>
             </div>
             <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
